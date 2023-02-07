@@ -154,7 +154,6 @@ namespace Calculator
                     operatorCounter = 0;
                     textBtn.Text = myanswer.ToString();
                     infoLbl.Text = myanswer.ToString();
-                    myanswer = 0;
                     second = 0;
                 }
                 else
