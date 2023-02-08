@@ -57,26 +57,29 @@ namespace Calculator
                 myanswer = first / second;
             }
         }
-       
         private void plusminusBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 if (infoLbl.Text != "")
                 {
-                    clickCounter++;
-                    if (clickCounter == 1)
+                    if (infoLbl.Text != "0")
                     {
-                        clickCounter = 0;
-                        textBtn.Text += '.';
                         if (textBtn.Text.StartsWith("-"))
                         {
                             textBtn.Text = textBtn.Text.Trim('-');
+                            infoLbl.Text = infoLbl.Text.Trim('-');
                         }
                         else
                         {
                             textBtn.Text = "-" + textBtn.Text;
+                            infoLbl.Text = "-" + infoLbl.Text;
                         }
+                    }
+                    else
+                    {
+                        textBtn.Text ="0";
+                        infoLbl.Text = "0";
                     }
                 }
                 else
@@ -84,7 +87,7 @@ namespace Calculator
                     throw new Exception("You have to write number before operator");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -97,8 +100,8 @@ namespace Calculator
             {
                 if (infoLbl.Text == "")
                 {
-                textBtn.Text += "0.";
-                infoLbl.Text += "0.";
+                    textBtn.Text += "0.";
+                    infoLbl.Text += "0.";
                 }
                 else
                 {
@@ -108,19 +111,19 @@ namespace Calculator
             }
 
         }
-  
+
         private void sqrtBtn_Click(object sender, EventArgs e)
         {
-                if (infoLbl.Text != "")
-                {
-                    clickCounter = 0;
-                    double myvalue = double.Parse(textBtn.Text);
-                    var myanswer = Math.Sqrt(myvalue);
-                    textBtn.Text = myanswer.ToString();
-                    infoLbl.Text = myanswer.ToString();
-                }
-                else
-                {
+            if (infoLbl.Text != "")
+            {
+                clickCounter = 0;
+                double myvalue = double.Parse(textBtn.Text);
+                var myanswer = Math.Sqrt(myvalue);
+                textBtn.Text = myanswer.ToString();
+                infoLbl.Text = myanswer.ToString();
+            }
+            else
+            {
                 clickCounter = 0;
                 textBtn.Text = "0";
                 double myvalue = double.Parse(textBtn.Text);
@@ -161,7 +164,7 @@ namespace Calculator
                     throw new Exception("You have to write number before operator");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -202,7 +205,7 @@ namespace Calculator
                     throw new Exception("You have to write number before operator");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -242,8 +245,8 @@ namespace Calculator
         {
             if (textBtn.Text != "")
             {
-            textBtn.Text=textBtn.Text.Remove(textBtn.Text.Length - 1, 1);
-            infoLbl.Text = textBtn.Text;
+                textBtn.Text = textBtn.Text.Remove(textBtn.Text.Length - 1, 1);
+                infoLbl.Text = textBtn.Text;
             }
             else
             {

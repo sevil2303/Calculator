@@ -429,6 +429,7 @@
             this.Controls.Add(this.equalityBtn);
             this.Controls.Add(this.pointBtn);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 
